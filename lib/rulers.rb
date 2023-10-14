@@ -1,7 +1,8 @@
 # frozen_string_literal: true
-require "rulers/array"
+require "rulers/version"
 require "rulers/routing"
-require_relative "rulers/version"
+require "rulers/util"
+require "rulers/dependencies"
 
 module Rulers
   class Error < StandardError; end
@@ -14,7 +15,7 @@ module Rulers
       text = controller.send(action)
       [
         200,
-        {'Content-Type'=>'text/html'},
+        {'content-type'=>'text/html'},
         [text]
       ]
     end
